@@ -19,11 +19,24 @@
     <button onclick="AfficherFen3()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">
     Téléchargement de jeux 
     </button>
+    <button onclick="AfficherFen3()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">
+    Mes scripts
+    </button>
 </div>
 
 <!-- Fenêtre Présentation -->
 <div id="fen2" style="display:none;flex-direction:column;align-items:center;">
-    <h2>Rien pour l'instant !</h2>
+    <h1>Présentations</h1>
+    <h2>Je suis Grnfr psoeudo bien evidement et je fais des scripts!</h2>
+    <h2>J'ai tout d'abord commencé par scratch lorsque j'avais environ 9 ans</h2>
+    <h2>puis je me suis mis sur python, et j'ai eu l'idée de creer des jeux! je me suis mis donc sur csharp et luau sur Roblox</h2>
+    <h2>Ensuite a 13 ans ce qui veut dire maintenant, j'apprends le HTML pour pouvoir creer des sites</h2>
+    <h2>J'ai fais des jeux et des scripts que je partagerais plus tard dans ce site</h2>
+    <h2>Je souhaite un jour devenir un grand developpeur, chez moi, sur mon pc </h2>
+    <h2>Pour moi, faire des script, c'est toute une passion </h2>
+    <h2>Je vais donc continuer a travailler pour atteindre mes objectifs!</h2>
+    <h2>Je vais peut etre me mettre sur les réseaux, ou jy ferais des scripts etc...</h2>
+    
     <button onclick="RetourFen1()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px;">
     Retour au menu
     </button>
@@ -39,6 +52,19 @@
 
 
 </div>
+<!--Fenetre scripts-->
+<div id="fen4" style="display:none;flex-direction:column;align-items:center;">
+    <h1>Mes scripts </h1>
+    <h2>Seulement des liens past bin</h2>
+    <h2>Pas de scripts pour l'instant</h2>
+    <button onclick="Retour3Fen1()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px;">
+    Retour au menu
+    </button>
+
+
+</div>
+
+
 <script>
 function AfficherFen2() {
     document.getElementById('fen1').style.display = 'none';
@@ -55,6 +81,14 @@ function AfficherFen3() {
 }
 function Retour2Fen1() {
     document.getElementById('fen3').style.display = 'none';
+    document.getElementById('fen1').style.display = 'flex';
+}
+function AfficherFen4() {
+    document.getElementById('fen1').style.display = 'none';
+    document.getElementById('fen4').style.display = 'flex';
+}
+function Retour3Fen1() {
+    document.getElementById('fen4').style.display = 'none';
     document.getElementById('fen1').style.display = 'flex';
 }
 </script>
