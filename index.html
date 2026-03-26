@@ -2,23 +2,43 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>GRNFR</title>
+    <title>GRNFR Scripts</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Fenêtre 1 -->
+<!-- Fenêtre Menu -->
 <div id="fen1" style="display:flex;flex-direction:column;align-items:center;">
-    <h1>Appuie sur le bouton!</h1>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQsAAACgCAMAAAAsJ7n5AAAAUVBMVEX///9MlsQ1jb+00OT7/P32+fuixN1AkcFHlMPP4O08j8BXm8dbnchfn8nF2unA1+iMt9aqyeCawNvp8ffW5O98rtHg6/Mrib1no8twp82EstMwq5D5AAADJElEQVR4nO3byZaqMABFUUMbokinUvr/H/pAkRt6BkXxSO4ZqoNkrxgh6unEGGOMMcYYY4wxxhhjjDHGGGOMMcaYMd2C9PVKs8fe4/gPimKhqkR823sku+dnjhRVsnS9vceyd37giHcOLWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBaIFogWiBbLLwF2a43sLzf29Ue+Rf82R+Cqst/CSIjqxR5I4TBrMzWGvh58pxsuNiFGkphJSzM1hp4QdSClmmR8Xw0/c0pZjDWGfxpqj/oJcfdIN1y88sq5UxPYNVFg1FVZlsMdLN80Qz/lmMNRagEGG8zWA3zvtRAhhTr1ph4eUthXDuG412427nsMUQUxgrLDQKFR/1r97RRVsZwfhrli3yUKM47h+9oxgY4fjKWLQwhGINxpJF0L7PDk7RxRjdQBcsDKLo7Rnu8Pl5i8wkigrjPIsxa5FJoyhOp6v20SoHl41zFq62bV6ivxntxukYoo8xY6FRhIZQVBiXFiM8X7vPTVu4uMQKY1Mo6pUxOa1JiwSrySSKDob66UxsykJbS9Iois6eoZ76J8KERRQbuirqdIy7hjFuET2VuRQdDOeOu81Ri5vZFF2MV4sxZvEAhTKSoodRNA+OWDzuTkthzHVFvyvuTcq0wRhaFBqFoauiTsNwmuP9gUXxAsWPuRQdDJW+59638F/G7xXfgCFVWj/Qs/BsWRVVnobh5KeBhbYqTKeoMWKsjLxvYc8b5JOGEQZdi7S9S7eDonvblZ1goR1520KhX3RJkblfiyTXDv9toeicTYhLIyAv7fev5pxirSkR7cpoFwO+Pz7bRFG9TQSOuHvZRlGvjAkMaR3FJIbsHw5b0SiGnRQVhhxg2LdXfEtkSIpv+Gi1nqJ70SWUpXvFtwT3Jiq2m0LDsOkeZCIv+RzuWHB0s5x3fZYqLJ+kqPIebpq6R/3d5m/nFcVBf/LOGGOMMcYYY4wxxhhjjDHGmHH9A1SDInYKMLRUAAAAAElFTkSuQmCC">
-    <button onclick="AfficherFen2()">Message Secret</button>
+    <img src="https://lh3.googleusercontent.com/sgi-eph/AO8RNkyfhOJMC74eD7WO9-t-gvdWdC0h65JtWenEzckdDzgSY3wKNmmz2I0wtQ1S_iM-HgN2e941V_mUMvfE-dZlAyaU9OZtOwWJ5tPxw-jJ8MND2WB69I4-McUcAgEXSNC6dnSl6WLfE1KQic6-BUeTnE2Qfaixu8mNuNU=s925"
+     style="position: fixed; top: 0; left: 0; width: 160px; border-radius: 50%">
+    <h1>GRNFR_Scripts</h1>
+    <h2>Très simple : un jeune dev passioné qui veux devenir un freelanceur</h2>
+    <button onclick="AfficherFen2()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px;">
+    Présentation
+    </button>
+    <button onclick="AfficherFen3()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px;">
+    Téléchargement de jeux 
+    </button>
 </div>
 
-<!-- Fenêtre 2 -->
+<!-- Fenêtre Présentation -->
 <div id="fen2" style="display:none;flex-direction:column;align-items:center;">
-    <p>t'es pas bo</p>
-    <button onclick="RetourFen1()">Retour</button>
+    <h2>Rien pour l'instant !</h2>
+    <button onclick="RetourFen1()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px;">
+    Retour au menu
+    </button>
 </div>
 
+<!--Fenetre launcher/telechargement-->
+<div id="fen3" style="display:none;flex-direction:column;align-items:center;">
+    <h1>Téléchargement de Jeux fait par moi</h1>
+    <h2>Pas de contenu pour l'instant</h2>
+    <button onclick="Retour2Fen1()" style="background-color: rgb(43, 177, 31); color: rgb(0, 0, 0); border: none; padding: 10px 15px; border-radius: 5px;">
+    Retour au menu
+    </button>
+
+
+</div>
 <script>
 function AfficherFen2() {
     document.getElementById('fen1').style.display = 'none';
@@ -27,6 +47,14 @@ function AfficherFen2() {
 
 function RetourFen1() {
     document.getElementById('fen2').style.display = 'none';
+    document.getElementById('fen1').style.display = 'flex';
+}
+function AfficherFen3() {
+    document.getElementById('fen1').style.display = 'none';
+    document.getElementById('fen3').style.display = 'flex';
+}
+function Retour2Fen1() {
+    document.getElementById('fen3').style.display = 'none';
     document.getElementById('fen1').style.display = 'flex';
 }
 </script>
