@@ -24,32 +24,5 @@ body {
     background-color: rgb(50, 200, 50); /* Optionnel : un vert plus clair */
 }
 
-.btn2 {
-    background-color: rgb(43, 177, 31);
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
 
-.btn2:hover {
-    transform: scale(1.1); /* Agrandit légèrement */
-    background-color: rgb(50, 200, 50); /* Optionnel : un vert plus clair */
-}
-.btn3 {
-    background-color: rgb(43, 177, 31);
-    color: black;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.btn3:hover {
-    transform: scale(1.1); /* Agrandit légèrement */
-    background-color: rgb(50, 200, 50); /* Optionnel : un vert plus clair */
-}
 
