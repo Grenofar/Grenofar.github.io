@@ -80,13 +80,10 @@ body {
 .logo {
   font-size: 20px;
   font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
+ 
 }
 
-.logo:hover {
-  color: #38bdf8;
-}
+
 
 .menu a {
   color: white;
@@ -99,3 +96,5 @@ body {
   color: #38bdf8;
   transform: scale(1.1);
 }
+
+
