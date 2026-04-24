@@ -17,48 +17,18 @@
 </div>
 
 <div>
-    <h1>Agent IA</h1>
-
-    <input id="input" placeholder="Écris ici...">
-    <button class="btn" onclick="send()">Envoyer</button>
-
-    <h2 id="loading" style="display:none;">Chargement...</h2>
-
-    <p id="result" style="font-size:20px; font-weight:bold;"></p>
+    <button onclick="loadMessage()">Clique ici</button>
+    <p id="result"></p>
 </div>
 
 <script>
-window.send = async function () {
-
-    const input = document.getElementById("input");
-    const loading = document.getElementById("loading");
-    const result = document.getElementById("result");
-
-    let text = input.value;
-
-    if (!text || !text.trim()) return;
-
-    loading.style.display = "block";
-    result.style.display = "none";
-
-    try {
-        const url = "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text);
-
-        const res = await fetch(url);
-
-        const data = await res.json();
-
-        result.innerText = data.response || "Réponse vide";
-
-    } catch (err) {
-        console.error(err);
-        result.innerText = "❌ Erreur API";
-    }
-
-    loading.style.display = "none";
-    result.style.display = "block";
-};
+async function loadMessage() {
+    let res = await fetch("https://grnfrscripts.pythonanywhere.com/message");
+    let data = await res.text();
+    document.getElementById("result").innerText = data;
+}
 </script>
+
 
 
 </body>
