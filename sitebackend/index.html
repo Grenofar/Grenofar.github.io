@@ -28,7 +28,7 @@
 async function verify() {
     let code = document.getElementById("code").value;
 
-    let res = await fetch("https://TON-RENDER.onrender.com/check?code=" + code);
+    let res = await fetch("https://grenofar-github-io.onrender.com/check?code=" + code);
     let data = await res.json();
 
     let result = document.getElementById("result");
