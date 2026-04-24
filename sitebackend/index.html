@@ -15,15 +15,15 @@
         <a href="https://grenofar.github.io">Site Principal</a>
     </div>
 </div>
+<div>
+    <h1>Entrer un code</h1>
 
-<h1>Entrer un code</h1>
+    <input id="code" placeholder="Tape le code">
+    <button class=btn onclick="verify()">Valider</button>
 
-<input id="code" placeholder="Tape le code">
-<button onclick="verify()">Valider</button>
-
-<p id="result"></p>
-<div id="button"></div>
-
+    <p id="result"></p>
+    <div   id="button"></div>
+</div>
 <script>
 async function verify() {
     let code = document.getElementById("code").value;
