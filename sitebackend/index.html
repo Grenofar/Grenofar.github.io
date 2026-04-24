@@ -18,18 +18,33 @@
 
 <div>
     <button onclick="loadMessage()">Clique ici</button>
+
+    <p id="loading" style="display:none;">Chargement...</p>
     <p id="result"></p>
 </div>
 
 <script>
 async function loadMessage() {
-    let res = await fetch("https://grnfrscripts.pythonanywhere.com/message");
-    let data = await res.text();
-    document.getElementById("result").innerText = data;
+    const result = document.getElementById("result");
+    const loading = document.getElementById("loading");
+
+    try {
+        loading.style.display = "block";
+        result.innerText = "";
+
+        const res = await fetch("https://grenofar-github-io.onrender.com/message");
+        const data = await res.json(); // ✅ FIX IMPORTANT
+
+        loading.style.display = "none";
+        result.innerText = data.text;
+
+    } catch (err) {
+        loading.style.display = "none";
+        result.innerText = "Erreur backend ❌";
+        console.error(err);
+    }
 }
 </script>
-
-
 
 </body>
 </html>
