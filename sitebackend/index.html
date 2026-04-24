@@ -16,32 +16,36 @@
     </div>
 </div>
 
-<div>
-    <button onclick="loadMessage()">Clique ici</button>
+<h1>Entrer un code</h1>
 
-    <p id="loading" style="display:none;">Chargement...</p>
-    <p id="result"></p>
-</div>
+<input id="code" placeholder="Tape le code">
+<button onclick="verify()">Valider</button>
+
+<p id="result"></p>
+<div id="button"></div>
 
 <script>
-async function loadMessage() {
-    const result = document.getElementById("result");
-    const loading = document.getElementById("loading");
+async function verify() {
+    let code = document.getElementById("code").value;
 
-    try {
-        loading.style.display = "block";
-        result.innerText = "";
+    let res = await fetch("https://TON-RENDER.onrender.com/check?code=" + code);
+    let data = await res.json();
 
-        const res = await fetch("https://grenofar-github-io.onrender.com/message");
-        const data = await res.json(); // ✅ FIX IMPORTANT
+    let result = document.getElementById("result");
+    let button = document.getElementById("button");
 
-        loading.style.display = "none";
-        result.innerText = data.text;
+    button.innerHTML = "";
 
-    } catch (err) {
-        loading.style.display = "none";
-        result.innerText = "Erreur backend ❌";
-        console.error(err);
+    if (data.ok) {
+        result.innerText = "Code correct ✅";
+
+        button.innerHTML = `
+            <a href="${data.link}" target="_blank">
+                <button>Aller vers le lien</button>
+            </a>
+        `;
+    } else {
+        result.innerText = "Code incorrect ❌";
     }
 }
 </script>
