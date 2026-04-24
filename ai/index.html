@@ -29,33 +29,39 @@
 
 <script>
 async function send() {
-    let text = document.getElementById("input").value;
+    const input = document.getElementById("input");
+    const loading = document.getElementById("loading");
+    const result = document.getElementById("result");
+
+    let text = input.value;
 
     if (!text.trim()) return;
 
-    // UI loading
-    document.getElementById("loading").style.display = "block";
-    document.getElementById("result").style.display = "none";
+    // UI reset
+    loading.style.display = "block";
+    result.style.display = "none";
+    result.innerText = "";
 
     try {
-        let res = await fetch(
-            "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text)
-        );
+        const url = "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text);
 
-        if (!res.ok) {
-            throw new Error("HTTP error: " + res.status);
+        const res = await fetch(url);
+
+        const data = await res.json();
+
+        if (!data.response) {
+            throw new Error("Réponse API invalide");
         }
 
-        let data = await res.json();
-
-        document.getElementById("result").innerText = data.response;
+        result.innerText = data.response;
 
     } catch (err) {
         console.error(err);
-        document.getElementById("result").innerText = "❌ Erreur API ou serveur";
+        result.innerText = "❌ Erreur API ou connexion";
     }
 
-    document.getElementById("loading").style.display = "none";
+    loading.style.display = "none";
+    result.style.display = "block";
 }
 </script>
 
