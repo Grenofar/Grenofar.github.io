@@ -28,20 +28,18 @@
 </div>
 
 <script>
-<script>
-async function send() {
+window.send = async function () {
+
     const input = document.getElementById("input");
     const loading = document.getElementById("loading");
     const result = document.getElementById("result");
 
     let text = input.value;
 
-    if (!text.trim()) return;
+    if (!text || !text.trim()) return;
 
-    // UI reset
     loading.style.display = "block";
     result.style.display = "none";
-    result.innerText = "";
 
     try {
         const url = "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text);
@@ -50,22 +48,18 @@ async function send() {
 
         const data = await res.json();
 
-        if (!data.response) {
-            throw new Error("Réponse API invalide");
-        }
-
-        result.innerText = data.response;
+        result.innerText = data.response || "Réponse vide";
 
     } catch (err) {
         console.error(err);
-        result.innerText = "❌ Erreur API ou connexion";
+        result.innerText = "❌ Erreur API";
     }
 
     loading.style.display = "none";
     result.style.display = "block";
-}
+};
 </script>
-</script>
+
 
 </body>
 </html>
