@@ -2,17 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>GRNFR Maintenance</title>
+    <title>GRNFR Agent IA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://lh3.googleusercontent.com/a/ACg8ocI6ACyrLsGHgCjTCFaY8q1aFRVVD6LRWS4G7bDmSnmH_vKPW5-v=s288-c-no" type="image/png">
 </head>
+
 <body>
 
 <div class="navbar">
-  <div class="logo">GRNFR</div>
-  <div class="menu">
-    <a href="https://grenofar.github.io">Site Principale</a>
-  </div>
+    <div class="logo">GRNFR</div>
+    <div class="menu">
+        <a href="https://grenofar.github.io">Site Principal</a>
+    </div>
 </div>
 
 <div>
@@ -21,30 +22,40 @@
     <input id="input" placeholder="Écris ici...">
     <button class="btn" onclick="send()">Envoyer</button>
 
-    <!-- LOADING -->
     <h2 id="loading" style="display:none;">Chargement...</h2>
 
-    <p style="font-size: 20px; font-weight: bold;" id="result"></p>
+    <p id="result" style="font-size:20px; font-weight:bold;"></p>
 </div>
+
 <script>
 async function send() {
     let text = document.getElementById("input").value;
 
     if (!text.trim()) return;
 
+    // UI loading
     document.getElementById("loading").style.display = "block";
     document.getElementById("result").style.display = "none";
 
-    let res = await fetch(
-        "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text)
-    );
+    try {
+        let res = await fetch(
+            "https://grnfrscripts.pythonanywhere.com/ai?q=" + encodeURIComponent(text)
+        );
 
-    let data = await res.json();
+        if (!res.ok) {
+            throw new Error("HTTP error: " + res.status);
+        }
+
+        let data = await res.json();
+
+        document.getElementById("result").innerText = data.response;
+
+    } catch (err) {
+        console.error(err);
+        document.getElementById("result").innerText = "❌ Erreur API ou serveur";
+    }
 
     document.getElementById("loading").style.display = "none";
-
-    document.getElementById("result").style.display = "block";
-    document.getElementById("result").innerText = data.response;
 }
 </script>
 
