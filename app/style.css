@@ -20,8 +20,8 @@ body {
 }
 
 .btn:hover {
-    transform: scale(1.1); /* Agrandit légèrement */
-    background-color: rgb(50, 200, 50); /* Optionnel : un vert plus clair */
+    transform: scale(1.1);
+    background-color: rgb(50, 200, 50);
 }
 
 
